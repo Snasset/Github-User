@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--suppress NavigationFile -->
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/homeFragment">
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.dheril.githubuser.ui.fragment.HomeFragment"
+        android:label="HomeFragment" >
+
+        <action
+            android:id="@+id/action_homeFragment_to_userDetailFragment"
+            app:destination="@id/userDetailFragment"
+            app:launchSingleTop="false" />
+        <action
+            android:id="@+id/action_homeFragment_to_favoriteUserFragment"
+            app:destination="@id/favoriteUserFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_themeModeFragment"
+            app:destination="@id/themeModeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/userDetailFragment"
+        android:name="com.dheril.githubuser.ui.fragment.UserDetailFragment"
+        android:label="UserDetailFragment" >
+        <argument
+            android:name="username"
+            app:argType="string"
+            android:defaultValue="default name" />
+        <action
+            android:id="@+id/action_userDetailFragment_self"
+            app:destination="@id/userDetailFragment" />
+        <action
+            android:id="@+id/action_userDetailFragment_to_themeModeFragment"
+            app:destination="@id/themeModeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/favoriteUserFragment"
+        android:name="com.dheril.githubuser.ui.fragment.FavoriteUserFragment"
+        android:label="fragment_favorite_user"
+        tools:layout="@layout/fragment_favorite_user" >
+        <action
+            android:id="@+id/action_favoriteUserFragment_to_userDetailFragment"
+            app:destination="@id/userDetailFragment" />
+        <action
+            android:id="@+id/action_favoriteUserFragment_to_themeModeFragment"
+            app:destination="@id/themeModeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/themeModeFragment"
+        android:name="com.dheril.githubuser.ui.fragment.ThemeModeFragment"
+        android:label="fragment_theme_mode"
+        tools:layout="@layout/fragment_theme_mode" />
+</navigation>
